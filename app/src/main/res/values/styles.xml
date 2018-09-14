@@ -1,0 +1,109 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--fourmine-->
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="Toolbar_TextAppearance_White">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <!--主父类-->
+    <style name="AppTheme.Divider">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/divider_line_color</item>
+    </style>
+    <style name="AppTheme.Divider.Line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="AppTheme.Divider.Line.Vertical">
+        <item name="android:layout_height">@dimen/dividerLine</item>
+    </style>
+
+    <!--登录框-->
+    <style name="login_text_style">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/x12</item>
+        <item name="android:layout_marginRight">@dimen/x12</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:background">@null</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/user_color</item>
+        <item name="android:textColorHint">@color/color_d9d9d9</item>
+        <item name="android:textSize">@dimen/size_12</item>
+    </style>
+    <!--标签样式-->
+    <style name="text_lable_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/x12</item>
+        <item name="android:layout_marginRight">@dimen/x12</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:background">@drawable/text_lable_bq</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/color_d9d9d9</item>
+        <item name="android:textSize">@dimen/size_8</item>
+    </style>
+    <!--  login_btn-->
+    <style name="btn_no_textColor">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_user_et</item>
+        <item name="android:background">@mipmap/dating_login_sure_btn</item>
+        <item name="android:layout_marginTop">@dimen/x25</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/size_15</item>
+    </style>
+
+    <!--fragment-->
+    <style name="tab_appearance">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!--顶部标题字体-->
+    <style name="title_text_style">
+        <item name="android:textSize">@dimen/size_19</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">#333333</item>
+    </style>
+    <!--个人中心 分类布局样式-->
+    <style name="personal_item_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/personal_item_height</item>
+        <item name="android:paddingLeft">@dimen/x22</item>
+        <item name="android:paddingRight">@dimen/x22</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:clickable">true</item>
+    </style>
+   <!-- 个人中心单项图片-->
+    <style name="personal_item_icon_style">
+        <item name="android:layout_width">@dimen/x20</item>
+        <item name="android:layout_height">@dimen/x20</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!--个人中心 分类TextView样式-->
+    <style name="personal_tv_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:layout_marginLeft">@dimen/x10</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/size_14</item>
+    </style>
+
+</resources>

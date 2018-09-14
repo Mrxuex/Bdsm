@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFF0">
+
+    <include
+        android:id="@+id/mine_set_title"
+        layout="@layout/top_title" />
+
+    <LinearLayout
+        android:id="@+id/setting_message_puls"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@id/mine_set_title"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:gravity="center"
+            android:text="消息通知"
+            android:textSize="12sp" />
+
+        <ch.ielse.view.SwitchView
+            android:id="@+id/switch_button"
+            android:layout_width="32dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="235dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mine_blacklist"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@id/setting_message_puls"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:gravity="center"
+            android:text="黑名单"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="248dp"
+            android:gravity="center"
+            android:src="@mipmap/dating_right_arrow" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/mine_blacklist"
+        android:background="@color/blackgroud_EFEFF0" />
+
+    <LinearLayout
+        android:id="@+id/mine_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@id/view1"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:gravity="center"
+            android:text="关于我们"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="235dp"
+            android:gravity="center"
+            android:src="@mipmap/dating_right_arrow" />
+    </LinearLayout>
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/mine_about_us"
+        android:background="@color/blackgroud_EFEFF0" />
+    <LinearLayout
+        android:id="@+id/mine_clean_cache"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@id/view2"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:gravity="center"
+            android:text="清楚缓存"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/text_clear_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8.0MB"
+            android:textSize="12sp"
+            android:layout_marginLeft="235dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mine_exit_login"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@id/mine_clean_cache"
+        android:background="@color/white"
+        android:gravity="center"
+        android:layout_marginTop="35dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+          android:layout_gravity="center"
+            android:text="退出登录"
+            android:textSize="12sp" />
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

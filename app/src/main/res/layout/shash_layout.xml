@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    >
+
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/land_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/dating_splitpage_bg" />
+
+    <FrameLayout
+        android:id="@+id/fl_guide_countdown_phone"
+        android:layout_width="163dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center|bottom"
+        android:clickable="true"
+        android:layout_marginBottom="221dp"
+        android:background="@mipmap/dating_splitpage_phone_btn_bg1"
+        >
+        <TextView
+            android:id="@+id/tv_guide_countdown_phone"
+            android:text="@string/spashing_phone"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:layout_width="82dp"
+            android:layout_height="20dp"
+            android:textColor="#ffa28a65"
+            android:textSize="16sp"
+            />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fl_guide_wechat"
+        android:layout_width="163dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center|bottom"
+        android:clickable="true"
+        android:layout_marginBottom="154dp"
+        android:background="@mipmap/dating_splitpage_phone_btn_bg2"
+        >
+
+        <!--android:background="@drawable/ic_launcher_background"-->
+        <TextView
+            android:id="@+id/tv_guide_wechat"
+            android:layout_gravity="center"
+            android:text="@string/spashing_wechat"
+            android:gravity="center_horizontal"
+            android:visibility="visible"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+            android:layout_width="66dp"
+            android:layout_height="20dp"
+            android:textColor="#ff202020"
+            android:textSize="16sp"
+
+
+            />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fl_guide_guanguan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:clickable="true"
+        android:layout_marginBottom="117dp"
+
+        >
+
+        <!--android:background="@drawable/ic_launcher_background"-->
+        <TextView
+            android:id="@+id/tv_guide_guanguan"
+            android:layout_gravity="center"
+            android:text="@string/spashing_guang"
+            android:gravity="center_horizontal"
+            android:visibility="visible"
+            android:layout_margin="0dp"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:textColor="#ffe6d3a5"
+            android:textSize="14sp"
+
+
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_guide_icah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:clickable="true"
+        android:layout_marginBottom="14dp"
+
+        >
+
+        <!--android:background="@drawable/ic_launcher_background"-->
+        <TextView
+            android:id="@+id/tv_guide_icah"
+            android:layout_gravity="center"
+            android:text="@string/spashing_angre_message"
+            android:gravity="center_horizontal"
+            android:visibility="visible"
+            android:layout_width="147dp"
+            android:layout_height="15dp"
+            android:textColor="#ffffffff"
+            android:textSize="11sp"
+
+            />
+    </FrameLayout>
+
+
+</FrameLayout>

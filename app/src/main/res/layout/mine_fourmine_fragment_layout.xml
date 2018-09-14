@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:id="@+id/personal_member_center"
+            style="@style/personal_item_style"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/img_personal_member_center"
+                style="@style/personal_item_icon_style"
+
+                android:src="@mipmap/dating_mine_vip" />
+
+            <TextView
+                style="@style/personal_tv_style"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_personal_member_center"
+                android:text="会员中心" />
+
+            <View
+                style="@style/AppTheme.Divider.Line.Vertical"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/personal_my_dynamic"
+            style="@style/personal_item_style"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/img_personal_my_dynamic"
+                style="@style/personal_item_icon_style"
+
+                android:src="@mipmap/dating_mine_dynamics" />
+
+            <TextView
+                style="@style/personal_tv_style"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_personal_my_dynamic"
+                android:text="我的动态" />
+
+            <View
+                style="@style/AppTheme.Divider.Line.Vertical"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/personal_my_label"
+            style="@style/personal_item_style"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/img_personal_my_label"
+                style="@style/personal_item_icon_style"
+
+                android:src="@mipmap/dating_mine_labels" />
+
+            <TextView
+                style="@style/personal_tv_style"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_personal_my_label"
+                android:text="我的标签" />
+
+            <View
+                style="@style/AppTheme.Divider.Line.Vertical"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/personal_feedback"
+            style="@style/personal_item_style"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/img_personal_feedback"
+                style="@style/personal_item_icon_style"
+
+                android:src="@mipmap/dating_mine_feedback" />
+
+            <TextView
+                style="@style/personal_tv_style"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_personal_feedback"
+                android:text="意见反馈" />
+
+            <!--<View
+                style="@style/AppTheme.Divider.Line.Vertical"
+                android:layout_alignParentBottom="true" />-->
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

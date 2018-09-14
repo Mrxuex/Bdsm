@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include
+        android:id="@+id/top_title"
+        layout="@layout/top_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_title"
+        android:gravity="center_horizontal"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/linear_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="vertical"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageview_logo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:padding="6dp"
+                android:src="@mipmap/dating_default_user_avatar" />
+
+            <TextView
+                android:id="@+id/versions"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="字母圈v1.1.4"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/privacy"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="用户协议和隐私条款"
+                android:textSize="10sp" />
+
+            <View
+                android:layout_width="90dp"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/privacy"
+                android:layout_centerHorizontal="true"
+                android:background="@color/textColorPrimary" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

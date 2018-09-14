@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="landing_center">#51483C</color>
+    <color name="landing_bottom">#1F1C1F</color>
+    <color name="divider_line_color">#e0e0e0</color>
+    <color name="logn_btn_color">#ff000000</color>
+
+    <color name="color_E6E6E6">#e6E6E6</color>
+<color name="color_cccccc">#cccccc</color>
+    <color name="color_ffff5b5b">#BBA175</color>
+
+    <!--tabBar-->
+    <color name="tab_unselect">#FFFFFF</color>
+    <color name="tab_select">#fa6567</color>
+    <color name="user_color">#A68151</color>
+    <color name="color_d9d9d9">#d9d9d9</color>
+    <color name="tab_btn_select">#F5D296</color>
+
+
+    <color name="fragment_tabselect">#BBA175</color>
+    <color name="fragment_tabLayout_norm">#000000</color>
+    <color name="textColorPrimary">#FF000000</color>
+
+    <color name="blackgroud_EFEFF0">#EFEFF0</color>
+</resources>

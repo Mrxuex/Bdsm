@@ -1,0 +1,30 @@
+<resources>
+
+    <dimen name="device_left_lmargin">17.5dip</dimen>
+    <dimen name="device_right_rmargin">23.0dip</dimen>
+    <dimen name="device_right_margin">25.0dip</dimen>
+    <dimen name="record_img">40.0dip</dimen>
+    <dimen name="device_img_width">185.5dip</dimen>
+    <dimen name="device_img_height">160.0dip</dimen>
+
+    <dimen name="intellilamp_img">158.5dip</dimen>
+
+    <dimen name="dimen_user_et">35.0dip</dimen>
+
+    <dimen name="user_img">70.0dip</dimen>
+    <dimen name="personal_item_height">43.0dip</dimen>
+    <dimen name="personal_margin_one">10.5dip</dimen>
+    <dimen name="personal_margin_two">17.5dip</dimen>
+
+    <!-- 添加网关页面-->
+    <dimen name="gateway_one_top">94.0dip</dimen>
+    <dimen name="btn_bottom">68.5dip</dimen>
+    <dimen name="dimen_big">18.5dip</dimen>
+    <dimen name="dimen_middle">9.5dip</dimen>
+    <dimen name="dimen_small">6.5dip</dimen>
+    <dimen name="search_icon_top">65.5dip</dimen>
+    <dimen name="gateway_icon_top">56.0dip</dimen>
+    <dimen name="wifi_input_top">47.0dip</dimen>
+    <dimen name="search_gateway_icon">80.0dip</dimen>
+
+</resources>

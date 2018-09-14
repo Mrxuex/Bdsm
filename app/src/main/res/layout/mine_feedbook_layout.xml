@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/top_title"
+        layout="@layout/top_title" />
+
+    <RelativeLayout
+        android:id="@+id/rel_feed_edite"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/top_title"
+        android:layout_margin="10dp"
+        android:background="@drawable/feedbook_shap">
+
+        <EditText
+            android:id="@+id/nike_num_max"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@null"
+            android:lines="5"
+            android:maxLines="5"
+            android:padding="5dp"
+            android:text="第一步：在设计图上框选出跳转区域，该区域大小方向可调节 第二步：将跳转区域与跳转页面链接!第一步：在设计图上框选出跳转区域，该区域大小方向可调节 第二步：将跳转区域与跳转页面链接"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/left_num"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            android:text="300/300"
+            android:textSize="8sp" />
+        <!--   android:background="@null"-->
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_feed_edite"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_ffff5b5b"
+            android:layout_marginLeft="10dp"/>
+
+
+
+            <EditText
+                android:id="@+id/phone_edite_lx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="请填写你的联系方式(选填)"
+                android:textSize="10sp"
+                android:layout_margin="10dp"
+                />
+
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_ffff5b5b"
+            android:layout_marginLeft="10dp"
+            />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/imageview_zhaopian"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:src="@mipmap/dating_tabbar_home_sel" />
+
+</LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

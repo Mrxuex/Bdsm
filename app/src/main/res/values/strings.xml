@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">CircleofLetters</string>
+
+    <string name="skip">%d秒后跳过</string>
+    <string name="landing_bottom">亚文化小众圈子</string>
+    <string name="landing_center">字母圈</string>
+    <string name="spashing_phone">手机号登陆</string>
+    <string name="spashing_wechat">微信登录</string>
+    <string name="spashing_guang">逛一逛</string>
+    <string name="spashing_angre_message">我已阅读并同意《用户协议》</string>
+    <string name="phone_login_hint_phone">请输入手机号</string>
+    <string name="phone_login_hint_authcode">请输入验证码</string>
+    <string name="phone_login_hint_has_authcode">获取验证码</string>
+    <string name="phone_login_btn">登录</string>
+    <string name="phone_other_login">使用第三方账号登录</string>
+    <string name="edit_data_okdata">完成注册</string>
+
+    <string name="tabbar_home">首页</string>
+    <string name="tabbar_cirlce">动态</string>
+    <string name="tabbar_session">消息</string>
+    <string name="tabbar_mine">我的</string>
+    <!--首页-->
+    <string name="homepager_recommend">推荐</string>
+    <string name="homepager_circle">圈子</string>
+    <string name="homepager_newpeople">新人</string>
+
+    <!--适配器-->
+    <string-array name="array_title">
+        <item>美女</item>
+        <item>帅哥</item>Cardiac circle
+        <item>帅哥美女</item>
+    </string-array>
+
+    <string-array name="array_content">
+        <item>穿红衣服女鬼</item>
+        <item>穿白衣服人妖</item>
+        <item>美女与野兽</item>
+    </string-array>
+
+    <!--动态-->
+    <string name="circlepager_all">全部</string>
+    <string name="circlepager_cardiac">心动圈</string>
+    <!--消息-->
+    <string name="sessionpager_list">消息列表</string>
+    <string name="sessionpager_ignore_the_unread">忽略未读</string>
+    <!--我的-->
+    <string name="mine_top_title">我的</string>
+    <string name="mine_top_set">设置</string>
+</resources>

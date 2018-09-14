@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    >
+
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/land_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/dating_splitpage_bg" />
+
+    <FrameLayout
+        android:id="@+id/fl_guide_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:clickable="true"
+        android:layout_marginTop="@dimen/x5"
+        android:padding="@dimen/x10">
+
+
+        <TextView
+            android:id="@+id/tv_guide_countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x25"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:paddingLeft="@dimen/x10"
+            android:paddingRight="@dimen/x10"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
+            android:visibility="invisible" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fl_guide_countdown_center"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:clickable="true"
+        android:layout_marginBottom="171dp"
+        >
+        <TextView
+            android:id="@+id/tv_guide_countdown_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/landing_center"
+            android:layout_gravity="center"
+            android:textColor="@color/landing_center"
+            android:textSize="50sp"
+            android:visibility="visible"
+            />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fl_guide_bottom"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center|bottom"
+        android:clickable="true"
+        android:layout_marginBottom="127dp"
+        android:background="@mipmap/dating_splitpage_phone_btn_bg2"
+        >
+
+        <!--android:background="@drawable/ic_launcher_background"-->
+        <TextView
+            android:id="@+id/tv_guide_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/landing_bottom"
+            android:gravity="center_horizontal"
+            android:textColor="@color/landing_bottom"
+            android:textSize="21sp"
+            android:visibility="visible"
+            android:layout_margin="0dp"
+            android:padding="0dp"
+
+            />
+    </FrameLayout>
+</FrameLayout>
