@@ -1,17 +1,15 @@
-/*
 package com.example.zimuquan.circleofletters.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.constraint.solver.Cache;
-
+import com.example.zimuquan.circleofletters.http.CacheInterceptor;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
 
-*/
 /**
- * Created by EDZ on 2018/9/10.
- *//*
+ * Created by David on 2018/10/1.
+ */
 
 public class BaseApplication extends Application {
 
@@ -24,31 +22,27 @@ public class BaseApplication extends Application {
         mApplication = this;
     }
 
-    */
-/**
+    /**
      * 返回上下文
      *
      * @return
-     *//*
-
+     */
     public static Context getContext() {
         return mApplication;
     }
 
 
 
-    */
-/**
+    /**
      * 初始化OKHttp
-     *//*
-
+     */
     public void initOkHttpClient(boolean isLogDisable, String logName,CacheInterceptor cacheInterceptor){
 
         File cacheFile = new File(getExternalCacheDir(),"httpCache");
-        Cache cache = new Cache(cacheFile,1024*1024*50);
+        okhttp3.Cache cache = new okhttp3.Cache(cacheFile,1024*1024*50);
         OkHttpClient.Builder builder= new OkHttpClient.Builder();
         if(isLogDisable){
-            builder.addInterceptor(new LoggerInterceptor(logName));
+            builder.addInterceptor(new com.zhy.http.okhttp.log.LoggerInterceptor(logName));
         }
         OkHttpClient okHttpClient =builder.addNetworkInterceptor(cacheInterceptor)
                 .connectTimeout(10000, TimeUnit.MILLISECONDS)
@@ -57,10 +51,8 @@ public class BaseApplication extends Application {
                 .addInterceptor(cacheInterceptor)
                 .cache(cache)
                 .build();
-        OkHttpUtils.initClient(okHttpClient);
+        com.zhy.http.okhttp.OkHttpUtils.initClient(okHttpClient);
     }
 
 
 }
-
-*/

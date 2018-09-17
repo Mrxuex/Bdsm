@@ -3,23 +3,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.zimuquan.circleofletters">
     <!--清除应用缓存-->
-    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
 
 
     <!--清除应用的用户数据-->
-    <uses-permission android:name="android.permission.CLEAR_APP_USER_DATA"
+    <uses-permission
+        android:name="android.permission.CLEAR_APP_USER_DATA"
         tools:ignore="ProtectedPermissions" />
-  <!--删除缓存-->
-    <uses-permission android:name="android.permission.DELETE_CACHE_FILES"
+    <!--删除缓存-->
+    <uses-permission
+        android:name="android.permission.DELETE_CACHE_FILES"
         tools:ignore="ProtectedPermissions" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-<!--    网络权限-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!--    网络权限-->
+    <!--融云权限-->
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 获取机型信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+
+    <!-- 查看 Wi-Fi 状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 查看网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 控制振动器 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 防止设备休眠 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <!--获取联系人信息，demo中演示发送通讯录消息-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
 
     <application
-
+        android:name=".im.base.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -27,7 +59,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- 开场页面-->
-        <activity android:name=".LandingActivity">
+        <activity android:name=".KkBoxActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,7 +78,7 @@
         <!--toast弹窗登录-->
         <activity android:name=".ToastLoginActivity" />
         <!--填写资料-->
-        <activity android:name=".KkBoxActivity" />
+      <!--  <activity android:name=".KkBoxActivity" />-->
         <!-- 编辑资料-->
         <activity android:name=".EditDataActivity" />
         <!--fragment 碎片解耦-->
@@ -63,23 +95,85 @@
         <!--黑名单-->
         <activity android:name=".BlackBookActivity" />
         <!--关于我们-->
-        <activity android:name=".OboutUsActivity"/>
-       <!-- 用户协议-->
-        <activity android:name=".UserAgreeUsBookActivity"/>
+        <activity android:name=".OboutUsActivity" />
+        <!-- 用户协议-->
+        <activity android:name=".UserAgreeUsBookActivity" />
 
 
         <!--逛一逛-->
-        <activity android:name=".WalkActivity"/>
-       <!-- 逛一逛首页浏览-->
-        <activity android:name=".WlakHomeActivity"/>
-      <!--会员中心-->
-        <activity android:name=".MemberCenterVipActivity"/>
+        <activity android:name=".WalkActivity" />
+        <!-- 逛一逛首页浏览-->
+        <activity android:name=".WlakHomeActivity" />
+        <!--会员中心-->
+        <activity android:name=".MemberCenterVipActivity" />
         <!--我的动态-->
-        <activity android:name=".MineMyDynamicActivity"/>
-       <!--个性标签-->
-        <activity android:name=".MinePersonalityLabelActivity"/>
-       <!-- 意见反馈-->
-        <activity android:name=".MineFeedbackActivity"/>
+        <activity android:name=".MineMyDynamicActivity" />
+        <!--个性标签-->
+        <activity android:name=".MinePersonalityLabelActivity" />
+        <!-- 意见反馈-->
+        <activity android:name=".MineFeedbackActivity" />
+
+        <!--im测试-->
+        <activity android:name=".im.MainActivity1" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.zimuquan.circleofletters.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rc_file_path" />
+        </provider>
+        <!-- 推送广播-->
+        <receiver
+            android:name=".im.receiver.SealNotificationReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+
+        <!--会话列表-->
+        <activity
+            android:name=".im.imActivity.ConversationListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.example.zimuquan.circleofletters"
+                    android:pathPrefix="/conversationlist"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+
+
+        <!--会话界面-->
+        <activity
+            android:name=".im.imActivity.ConversationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.example.zimuquan.circleofletters"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
 
     </application>
 

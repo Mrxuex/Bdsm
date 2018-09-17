@@ -11,6 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zimuquan.circleofletters.base.BaseActivity;
+import com.example.zimuquan.circleofletters.base.BdsM;
+import com.example.zimuquan.circleofletters.im.MainActivity1;
+import com.example.zimuquan.circleofletters.modle.commom.Const;
+import com.example.zimuquan.circleofletters.utils.SPUtil;
+import com.example.zimuquan.circleofletters.utils.StringUtil;
+import com.example.zimuquan.circleofletters.utils.StringUtils;
+import com.example.zimuquan.circleofletters.utils.URLUtils;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -68,6 +77,25 @@ public class LandingActivity extends BaseActivity {
         mHandler = new Handler();
         mHandler.post(countDownRunnable);
 
+
+
+      //  mHandler = new Handler();
+       /* if (StringUtil.isEmpty(SPUtil.Instance().read(Const.USER))) {
+           *//* boolean isChinese = BaseUtils.isZh(this);
+            URLUtils.setServer(isChinese);*//*
+        } *//*else {
+            if (StringUtils.checkEmail(MeSmart.USER.getUsername())) {
+                URLUtils.setServer(false);
+            } *//*else (StringUtils.checkPhone(BdsM.USER.getUsername())) {
+                URLUtils.setServer(true);
+            }
+        }*/
+      //  mHandler.post(countDownRunnable);
+       /* DisplayImageOptions options = new DisplayImageOptions.Builder().showImageOnFail(R.mipmap.dating_splitpage_bg)
+                .showStubImage(R.mipmap.dating_splitpage_bg).build();*/
+        /*后期可设置服务器获取*/
+      //  ImageLoader.getInstance().displayImage(URLUtils.getGuideImgUrl(), land_view, options);
+
     }
 
 
@@ -101,12 +129,27 @@ public class LandingActivity extends BaseActivity {
     /**
      * 延迟两秒进入登录界面
      */
-    private void startLoginActivity() {
+   /* private void startLoginActivity() {
        // 在此做是否第一次登陆判断else if
         startActivity(new Intent(LandingActivity.this, SpashActivity.class));
         this.finish();
+    }*/
+    /**
+     * 延迟两秒进入登录界面
+     */
+    private void startLoginActivity() {
+       // startActivity(new Intent(LandingActivity.this, MainActivity1.class));
+        if (!StringUtil.isEmpty(SPUtil.Instance().read(Const.USER))) {
+            BdsM.isResume = true;
+           startActivity(new Intent(LandingActivity.this, MainActivity.class));
+        } else if (SPUtil.Instance().readBoolean(Const.IS_NO_FIRST)) {
+            startActivity(new Intent(LandingActivity.this, LoginActivity.class));
+        } /*else {
+            SPUtil.Instance().saveBoolean(Const.IS_NO_FIRST, true);
+            startActivity(new Intent(LandingActivity.this, GuideActivity.class));
+        }*/
+        this.finish();
     }
-
 
     @OnClick(R.id.fl_guide_countdown)
     public void click(View view) {
