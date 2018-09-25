@@ -2,8 +2,14 @@ package com.example.zimuquan.circleofletters;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.zimuquan.circleofletters.base.BaseActivity;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by EDZ on 2018/9/12.
@@ -11,6 +17,10 @@ import com.example.zimuquan.circleofletters.base.BaseActivity;
 
 public class PersonalHomepageActivity extends BaseActivity {
 
+    @BindView(R.id.toptitleText)
+    TextView toptitleText;
+    @BindView(R.id.backbtnlay)
+    ImageView backbtn;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +33,21 @@ public class PersonalHomepageActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
+toptitleText.setText("游客名字");
     }
 
     @Override
     public void initData() {
 
     }
+    @OnClick(R.id.backbtnlay)
+    public void click(View view) {
+        switch (view.getId()){
+            case R.id.backbtnlay:
+                finish();
+                break;
+
+        }
+    }
+
 }

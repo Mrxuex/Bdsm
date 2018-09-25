@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rel_pay_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<include
+    android:id="@+id/top_title"
+    layout="@layout/top_title"
+    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        >
+        <EditText
+            android:id="@+id/text_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="为什么要缴纳费用？"
+            android:textSize="14sp"
+            android:textColor="@color/user_color"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:clickable="false"
+            />
+        <com.example.zimuquan.circleofletters.ui.view.OnclickButton
+            android:id="@+id/login_btn"
+            android:layout_width="263dp"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@mipmap/dating_login_sure_btn"
+            android:layout_below="@id/text_bg"
+            android:text="立即加入"
+            android:textColor="@color/logn_btn_color"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

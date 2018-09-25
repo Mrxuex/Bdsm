@@ -1,6 +1,10 @@
 package com.example.zimuquan.circleofletters.ui.fragment.child.childpager;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,13 +15,24 @@ import android.view.ViewGroup;
 
 import com.example.zimuquan.circleofletters.MainActivity;
 import com.example.zimuquan.circleofletters.R;
+import com.example.zimuquan.circleofletters.WalkActivity;
 import com.example.zimuquan.circleofletters.event.TabSelectedEvent;
+import com.example.zimuquan.circleofletters.modle.WalkArtice;
 import com.example.zimuquan.circleofletters.ui.adapter.HomeAdapter;
+import com.example.zimuquan.circleofletters.ui.adapter.WalkHomeAdapter;
+import com.example.zimuquan.circleofletters.ui.fragment.child.FirstHomeFragment;
 import com.example.zimuquan.circleofletters.ui.fragment.entiy.Article;
 import com.example.zimuquan.circleofletters.ui.fragment.listener.OnItemClickListener;
+import com.example.zimuquan.circleofletters.utils.URLUtils;
+import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.Subscribe;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +52,10 @@ public class FirstPagerFragment extends SupportFragment implements SwipeRefreshL
     private String[] mTitles;
     private String[] mContents;
 
+    private Context context;
+    private HomeAdapter myAdapter;
+    private URL  url = null;
+
     public static FirstPagerFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -45,6 +64,8 @@ public class FirstPagerFragment extends SupportFragment implements SwipeRefreshL
         fragment.setArguments(args);
         return fragment;
     }
+
+
 
     @Nullable
     @Override
@@ -88,6 +109,10 @@ public class FirstPagerFragment extends SupportFragment implements SwipeRefreshL
         }
         mAdapter.setDatas(articleList);
 
+
+
+
+
         mRecy.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -101,7 +126,23 @@ public class FirstPagerFragment extends SupportFragment implements SwipeRefreshL
             }
         });
     }
+    /*类型转换显示*/
+    public String streamToString(InputStream is) {
+        StringBuilder builder = new StringBuilder();
 
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        String con;
+        try {
+            while ((con = reader.readLine()) != null) {
+                builder.append(con);
+            }
+            reader.close();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+        return builder.toString();
+    }
     @Override
     public void onRefresh() {
         mRefreshLayout.postDelayed(new Runnable() {

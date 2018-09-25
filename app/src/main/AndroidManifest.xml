@@ -15,8 +15,7 @@
         android:name="android.permission.DELETE_CACHE_FILES"
         tools:ignore="ProtectedPermissions" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
     <!--    网络权限-->
     <!--融云权限-->
 
@@ -50,8 +49,26 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_OWNER_DATA" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
-        android:name=".im.base.MyApp"
+        android:name=".base.BdsM"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -59,7 +76,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- 开场页面-->
-        <activity android:name=".KkBoxActivity">
+        <activity android:name=".WalkMessageActvity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -70,17 +88,27 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <!--  android:theme="@android:style/Theme.NoTitleBar"-->
-        <!-- 引导选择-->
+
+        <!-- 选择页面手机，微信，逛一逛-->
         <activity android:name=".SpashActivity" />
+        <!--************逛一逛主题*****************-->
+        <!-- 逛一逛进入填写性别OK-->
+     <!--   <activity android:name="WalkMessageActvity" />-->
+        <!-- 逛一逛进入性别判断首页OK-item子项点击no-->
+        <activity android:name=".WalkActivity" />
+
         <!-- phone手机号登录-->
         <activity android:name=".PhoneLoginActivity" />
         <!--toast弹窗登录-->
         <activity android:name=".ToastLoginActivity" />
-        <!--填写资料-->
-      <!--  <activity android:name=".KkBoxActivity" />-->
+
+         <activity android:name=".PayloginActivity"/>
+        <!-- 用户协议OK-->
+        <activity android:name=".UserAgreeUsBookActivity" />
+        <!--填写资料-选择角色-->
+        <activity android:name=".KkBoxActivity" />
         <!-- 编辑资料-->
-        <activity android:name=".EditDataActivity" />
+         <activity android:name=".EditDataActivity" />
         <!--fragment 碎片解耦-->
         <!--首页刷选-->
         <activity android:name=".ScreenActivity" />
@@ -96,12 +124,10 @@
         <activity android:name=".BlackBookActivity" />
         <!--关于我们-->
         <activity android:name=".OboutUsActivity" />
-        <!-- 用户协议-->
-        <activity android:name=".UserAgreeUsBookActivity" />
 
 
-        <!--逛一逛-->
-        <activity android:name=".WalkActivity" />
+        <!--逛一逛   已重复  ky-->
+
         <!-- 逛一逛首页浏览-->
         <activity android:name=".WlakHomeActivity" />
         <!--会员中心-->
@@ -112,7 +138,7 @@
         <activity android:name=".MinePersonalityLabelActivity" />
         <!-- 意见反馈-->
         <activity android:name=".MineFeedbackActivity" />
-
+        <!--im通信配置开始-->
         <!--im测试-->
         <activity android:name=".im.MainActivity1" />
 
@@ -174,7 +200,29 @@
                     android:scheme="rong" />
             </intent-filter>
         </activity>
+        <!--im配置结束-->
 
+        <!-- 微信登录-->
+        <!--微信配置开始-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name" />
+        <!--微信配置结束-->
+        <!--支付宝支付配置开始-->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+        <!--支付宝配置结束-->
     </application>
 
 </manifest>

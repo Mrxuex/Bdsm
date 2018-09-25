@@ -26,4 +26,7 @@
     <color name="textColorPrimary">#FF000000</color>
 
     <color name="blackgroud_EFEFF0">#EFEFF0</color>
+    <color name="blue">#6495ED</color>
+    <color name="no_select">#C1C1C1</color>
+<color name="title_pop">#B5B5B5</color>
 </resources>

@@ -35,8 +35,10 @@ allprojects {
             dirs 'libs' //本地aar文件
         }
 
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
     }
 }
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

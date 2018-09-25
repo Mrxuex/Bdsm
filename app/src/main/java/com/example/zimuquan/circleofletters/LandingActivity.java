@@ -14,6 +14,7 @@ import com.example.zimuquan.circleofletters.base.BaseActivity;
 import com.example.zimuquan.circleofletters.base.BdsM;
 import com.example.zimuquan.circleofletters.im.MainActivity1;
 import com.example.zimuquan.circleofletters.modle.commom.Const;
+import com.example.zimuquan.circleofletters.utils.ActivityUtil;
 import com.example.zimuquan.circleofletters.utils.SPUtil;
 import com.example.zimuquan.circleofletters.utils.StringUtil;
 import com.example.zimuquan.circleofletters.utils.StringUtils;
@@ -66,6 +67,10 @@ public class LandingActivity extends BaseActivity {
                 startLoginActivity();
             }
         });
+
+
+
+
     }
 
 
@@ -79,22 +84,25 @@ public class LandingActivity extends BaseActivity {
 
 
 
-      //  mHandler = new Handler();
-       /* if (StringUtil.isEmpty(SPUtil.Instance().read(Const.USER))) {
-           *//* boolean isChinese = BaseUtils.isZh(this);
-            URLUtils.setServer(isChinese);*//*
-        } *//*else {
+/*
+        mHandler = new Handler();
+        if (StringUtil.isEmpty(SPUtil.Instance().read(Const.USER))) {
+            boolean isChinese = BaseUtils.isZh(this);
+            URLUtils.setServer(isChinese);
+        } else {
             if (StringUtils.checkEmail(MeSmart.USER.getUsername())) {
                 URLUtils.setServer(false);
-            } *//*else (StringUtils.checkPhone(BdsM.USER.getUsername())) {
+            } else if (StringUtils.checkPhone(MeSmart.USER.getUsername())) {
                 URLUtils.setServer(true);
             }
+        }
+        mHandler.post(countDownRunnable);
+        DisplayImageOptions options = new DisplayImageOptions.Builder().showImageOnFail(R.drawable.landing)
+                .showStubImage(R.drawable.landing).build();
+        ImageLoader.getInstance().displayImage(URLUtils.getGuideImgUrl(), land_view, options);
+        if(!MinaManager.getInstance().isConnect()) {
+            startMinaService();
         }*/
-      //  mHandler.post(countDownRunnable);
-       /* DisplayImageOptions options = new DisplayImageOptions.Builder().showImageOnFail(R.mipmap.dating_splitpage_bg)
-                .showStubImage(R.mipmap.dating_splitpage_bg).build();*/
-        /*后期可设置服务器获取*/
-      //  ImageLoader.getInstance().displayImage(URLUtils.getGuideImgUrl(), land_view, options);
 
     }
 
@@ -141,14 +149,18 @@ public class LandingActivity extends BaseActivity {
        // startActivity(new Intent(LandingActivity.this, MainActivity1.class));
         if (!StringUtil.isEmpty(SPUtil.Instance().read(Const.USER))) {
             BdsM.isResume = true;
-           startActivity(new Intent(LandingActivity.this, MainActivity.class));
+            ActivityUtil.intentActivity(LandingActivity.this, MainActivity.class);
         } else if (SPUtil.Instance().readBoolean(Const.IS_NO_FIRST)) {
-            startActivity(new Intent(LandingActivity.this, LoginActivity.class));
-        } /*else {
+            ActivityUtil.intentActivity(LandingActivity.this, LoginActivity.class);
+        } else {
             SPUtil.Instance().saveBoolean(Const.IS_NO_FIRST, true);
-            startActivity(new Intent(LandingActivity.this, GuideActivity.class));
-        }*/
+            ActivityUtil.intentActivity(LandingActivity.this, LoginActivity.class);
+        }
         this.finish();
+
+
+
+
     }
 
     @OnClick(R.id.fl_guide_countdown)

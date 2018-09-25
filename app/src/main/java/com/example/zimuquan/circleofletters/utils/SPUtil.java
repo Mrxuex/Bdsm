@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 import com.example.zimuquan.circleofletters.base.BdsM;
-import com.example.zimuquan.circleofletters.modle.UserInfo;
+import com.example.zimuquan.circleofletters.modle.user.UserInfo;
 import com.example.zimuquan.circleofletters.modle.commom.Const;
 
 /**
@@ -123,35 +123,36 @@ public class SPUtil {
     /**
      * 登录需要保存的数据
      */
-    public void login(UserInfo userInfo) {
+   /* public void login(UserInfo userInfo) {
         if (userInfo != null) {
             m_weditor.putString(Const.USER, JsonUtil.objectToJson(userInfo));//保存用户数据
             String lastName = read(Const.LAST_USE_NAME);
-           /* if (StringUtil.isEmpty(userInfo.getGatewayId()) || !StringUtil.isEquals(lastName, userInfo.getUsername())) {
-                m_weditor.remove(Const.GWINFO);//清除网关数据
-                m_weditor.remove(Const.DVINFO);//清除设备信息
+            if (StringUtil.isEmpty(userInfo.getGatewayId()) || !StringUtil.isEquals(lastName, userInfo.getUsername())) {
                 m_weditor.remove(Const.PUSH);//清除用户推送字符信息
-            }*/
-          //  m_weditor.putString(Const.LAST_USE_NAME, userInfo.getUsername());
+            }
+            m_weditor.putString(Const.LAST_USE_NAME, userInfo.getUsername());
             m_weditor.commit();
         }
-    }
+    }*/
 
     /**
      * 退出需要清理的数据
      */
-    public void logout() {
-        BdsM.USER = null;
+   /* public void logout() {
+        MeSmart.USER = null;
         Const.SIGN = null;
         m_weditor.remove(Const.USER);//清除用户信息
+        m_weditor.remove(Const.GWINFO);//清除网关数据
+        m_weditor.remove(Const.DVINFO);//清除设备信息
         m_weditor.remove(Const.PUSH);//清除用户推送字符信息
         m_weditor.commit();
-    }
-/*
-    *//**
+        MinaManager.getInstance().destroy();//退出TCP
+    }*/
+
+    /**
      * 绑定成功
-     *//*
-    public void Bind(UserInfo userInfo) {
+     */
+   /* public void Bind(UserInfo userInfo) {
         m_weditor.putString(Const.USER, JsonUtil.objectToJson(userInfo));//保存用户数据
         //m_weditor.putString(Const.LAST_USE_NAME, userInfo.getUsername());
         // m_weditor.remove(Const.USER);//清除用户信息
@@ -161,10 +162,10 @@ public class SPUtil {
         m_weditor.commit();
     }*/
 
-  /*  *//**
+    /**
      * 解除绑定
-     *//*
-    public void unBind() {
+     */
+   /* public void unBind() {
         // m_weditor.remove(Const.USER);//清除用户信息
         m_weditor.remove(Const.GWINFO);//清除网关数据
         m_weditor.remove(Const.DVINFO);//清除设备信息

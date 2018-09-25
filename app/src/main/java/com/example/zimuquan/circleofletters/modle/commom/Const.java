@@ -36,6 +36,7 @@ public class Const {
      */
     public final static String USER = "User_Info";
     public final static String PUSH = "push_";//推送字符
+
     public final static String LAST_USE_NAME = "LAST_USE_NAME"; //用户登录账号
 
     /**

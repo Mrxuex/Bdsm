@@ -7,8 +7,9 @@ import android.support.v4.app.FragmentActivity;
 
 
 import com.example.zimuquan.circleofletters.R;
+import com.example.zimuquan.circleofletters.base.BdsM;
 import com.example.zimuquan.circleofletters.im.MainActivity1;
-import com.example.zimuquan.circleofletters.im.base.MyApp;
+
 
 import io.rong.imkit.RongIM;
 import io.rong.imkit.fragment.ConversationListFragment;
@@ -61,7 +62,7 @@ public class ConversationListActivity extends FragmentActivity {
      */
     private void reconnect(String token) {
 
-        if (getApplicationInfo().packageName.equals(MyApp.getCurProcessName(getApplicationContext()))) {
+        if (getApplicationInfo().packageName.equals(BdsM.getCurProcessName(getApplicationContext()))) {
 
             RongIM.connect(token, new RongIMClient.ConnectCallback() {
                 @Override

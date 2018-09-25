@@ -1,7 +1,18 @@
 apply plugin: 'com.android.application'
 
 
+
 android {
+    /*signingConfigs {
+        config {
+        }
+        release {
+            keyAlias 'xyr'
+            keyPassword '1476005770'
+            storeFile file('C:/Users/EDZ/bdsm.keystore')
+            storePassword '1476005770'
+        }
+    }*/
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.zimuquan.circleofletters"
@@ -15,21 +26,27 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            /*signingConfig signingConfigs.release*/
         }
     }
-
+    /*signingConfigs {
+        debug {
+            storeFile file("../debug.keystore")
+        }
+    }*/
     configurations.all {
         resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
     }
-
-
     sourceSets {
         main {
             jni.srcDirs = []
             jniLibs.srcDirs = ['libs']
         }
     }
-
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 
@@ -68,8 +85,22 @@ dependencies {
     /*google gson 解析*/
     implementation 'com.google.code.gson:gson:2.7'
     implementation project(':IMKit')
-/*日历选择器插件*/
-    implementation('cn.qqtheme.framework:WheelPicker:1.5.2') {
+    /*日历选择器插件*/
+    /* implementation('com.contrarywind:Android-PickerView:3.2.7') {
+                    exclude group: 'com.android.support'
+                }*/
+    implementation 'com.contrarywind:Android-PickerView:3.2.7'
+    /*网络请求*/
+    implementation 'com.google.code.gson:gson:2.3.1'
+    /*implementation 'com.jiechic.library:xUtils:2.6.14'*/
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    /*  微信登录*/
+    /*dependencies {
+                    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+                }*/
+    // implementation 'com.allure0:ThirdLoginSDK:1.0.0'
+    implementation('com.github.arvinljw:SocialHelper:v1.0.9') {
         exclude group: 'com.android.support'
     }
+    implementation files('libs/alipaySdk-20180601.jar')
 }

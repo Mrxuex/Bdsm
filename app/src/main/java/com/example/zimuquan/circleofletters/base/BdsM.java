@@ -7,8 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.multidex.MultiDex;
 
-import com.example.zimuquan.circleofletters.http.CacheInterceptor;
-import com.example.zimuquan.circleofletters.modle.UserInfo;
+import com.example.zimuquan.circleofletters.modle.user.UserInfo;
 import com.example.zimuquan.circleofletters.modle.commom.Const;
 import com.example.zimuquan.circleofletters.utils.SPUtil;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
@@ -18,7 +17,7 @@ import com.nostra13.universalimageloader.utils.StorageUtils;
 
 import java.io.File;
 
-import static okhttp3.internal.Internal.instance;
+import io.rong.imkit.RongIM;
 
 /**
  * Created by EDZ on 2018/9/17.
@@ -32,15 +31,26 @@ public class BdsM extends BaseApplication {
     public Activity activity;
     public static UserInfo USER = null;
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();
+        /*保存用户信息*/
+        USER = new SPUtil(this).getUserInfo();
         instance = this;
         MultiDex.install(this);
       //  USER = new SPUtil(this).getUserInfo();
+        if (getApplicationInfo().packageName.equals(getCurProcessName(getApplicationContext())) ||
+                "io.rong.push".equals(getCurProcessName(getApplicationContext()))) {
+
+            /**
+             * IMKit SDK调用第一步 初始化
+             */
+            RongIM.init(this);
+        }
+
         initImageLoader();
+
+
     }
 
 
@@ -101,5 +111,29 @@ public class BdsM extends BaseApplication {
             }
         }
         return false;
+    }
+
+    /**
+     * 获得当前进程的名字
+     *
+     * @param context
+     * @return
+     */
+    public static String getCurProcessName(Context context) {
+
+        int pid = android.os.Process.myPid();
+
+        ActivityManager activityManager = (ActivityManager) context
+                .getSystemService(Context.ACTIVITY_SERVICE);
+
+        for (ActivityManager.RunningAppProcessInfo appProcess : activityManager
+                .getRunningAppProcesses()) {
+
+            if (appProcess.pid == pid) {
+
+                return appProcess.processName;
+            }
+        }
+        return null;
     }
 }

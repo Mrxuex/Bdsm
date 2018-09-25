@@ -1,10 +1,16 @@
 package com.example.zimuquan.circleofletters.utils;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
@@ -108,7 +114,7 @@ public class StringUtil {
 
 	/**
 	 * is null or its length is 0 or it is made by space
-	 * 
+	 *
 	 * <pre>
 	 * isBlank(null) = true;
 	 * isBlank(&quot;&quot;) = true;
@@ -118,7 +124,7 @@ public class StringUtil {
 	 * isBlank(&quot; a&quot;) = false;
 	 * isBlank(&quot;a b&quot;) = false;
 	 * </pre>
-	 * 
+	 *
 	 * @param str
 	 * @return if string is null or its size is 0 or it is made by space, return
 	 *         true, else return false.
@@ -129,13 +135,13 @@ public class StringUtil {
 
 	/**
 	 * is null or its length is 0
-	 * 
+	 *
 	 * <pre>
 	 * isEmpty(null) = true;
 	 * isEmpty(&quot;&quot;) = true;
 	 * isEmpty(&quot;  &quot;) = false;
 	 * </pre>
-	 * 
+	 *
 	 * @param str
 	 * @return if string is null or its size is 0, return true, else return
 	 *         false.
@@ -146,7 +152,7 @@ public class StringUtil {
 
 	/**
 	 * compare two string
-	 * 
+	 *
 	 * @param actual
 	 * @param expected
 	 * @return
@@ -158,13 +164,13 @@ public class StringUtil {
 
 	/**
 	 * null string to empty string
-	 * 
+	 *
 	 * <pre>
 	 * nullStrToEmpty(null) = &quot;&quot;;
 	 * nullStrToEmpty(&quot;&quot;) = &quot;&quot;;
 	 * nullStrToEmpty(&quot;aa&quot;) = &quot;aa&quot;;
 	 * </pre>
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -174,7 +180,7 @@ public class StringUtil {
 
 	/**
 	 * capitalize first letter
-	 * 
+	 *
 	 * <pre>
 	 * capitalizeFirstLetter(null)     =   null;
 	 * capitalizeFirstLetter("")       =   "";
@@ -183,7 +189,7 @@ public class StringUtil {
 	 * capitalizeFirstLetter("ab")     =   "Ab"
 	 * capitalizeFirstLetter("Abc")    =   "Abc"
 	 * </pre>
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -199,14 +205,14 @@ public class StringUtil {
 
 	/**
 	 * encoded in utf-8
-	 * 
+	 *
 	 * <pre>
 	 * utf8Encode(null)        =   null
 	 * utf8Encode("")          =   "";
 	 * utf8Encode("aa")        =   "aa";
 	 * utf8Encode("鍟婂晩鍟婂晩")   = "%E5%95%8A%E5%95%8A%E5%95%8A%E5%95%8A";
 	 * </pre>
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 * @throws UnsupportedEncodingException
@@ -225,7 +231,7 @@ public class StringUtil {
 
 	/**
 	 * encoded in utf-8, if exception, return defultReturn
-	 * 
+	 *
 	 * @param str
 	 * @param defultReturn
 	 * @return
@@ -243,7 +249,7 @@ public class StringUtil {
 
 	/**
 	 * get innerHtml from href
-	 * 
+	 *
 	 * <pre>
 	 * getHrefInnerHtml(null)                                  = ""
 	 * getHrefInnerHtml("")                                    = ""
@@ -258,7 +264,7 @@ public class StringUtil {
 	 * getHrefInnerHtml("jack&lt;a&gt;innerHtml&lt;/a&gt;&lt;/a&gt;")                  = "innerHtml";
 	 * getHrefInnerHtml("&lt;a&gt;innerHtml1&lt;/a&gt;&lt;a&gt;innerHtml2&lt;/a&gt;")        = "innerHtml2";
 	 * </pre>
-	 * 
+	 *
 	 * @param href
 	 * @return <ul>
 	 *         <li>if href is null, return ""</li>
@@ -280,23 +286,23 @@ public class StringUtil {
 		return href;
 	}
 
-/**
-     * process special char in html
-     * 
-     * <pre>
-     * htmlEscapeCharsToString(null) = null;
-     * htmlEscapeCharsToString("") = "";
-     * htmlEscapeCharsToString("mp3") = "mp3";
-     * htmlEscapeCharsToString("mp3&lt;") = "mp3<";
-     * htmlEscapeCharsToString("mp3&gt;") = "mp3\>";
-     * htmlEscapeCharsToString("mp3&amp;mp4") = "mp3&mp4";
-     * htmlEscapeCharsToString("mp3&quot;mp4") = "mp3\"mp4";
-     * htmlEscapeCharsToString("mp3&lt;&gt;&amp;&quot;mp4") = "mp3\<\>&\"mp4";
-     * </pre>
-     * 
-     * @param source
-     * @return
-     */
+	/**
+	 * process special char in html
+	 *
+	 * <pre>
+	 * htmlEscapeCharsToString(null) = null;
+	 * htmlEscapeCharsToString("") = "";
+	 * htmlEscapeCharsToString("mp3") = "mp3";
+	 * htmlEscapeCharsToString("mp3&lt;") = "mp3<";
+	 * htmlEscapeCharsToString("mp3&gt;") = "mp3\>";
+	 * htmlEscapeCharsToString("mp3&amp;mp4") = "mp3&mp4";
+	 * htmlEscapeCharsToString("mp3&quot;mp4") = "mp3\"mp4";
+	 * htmlEscapeCharsToString("mp3&lt;&gt;&amp;&quot;mp4") = "mp3\<\>&\"mp4";
+	 * </pre>
+	 *
+	 * @param source
+	 * @return
+	 */
 	public static String htmlEscapeCharsToString(String source) {
 		return StringUtil.isEmpty(source) ? source : source.replaceAll("&lt;", "<").replaceAll("&gt;", ">")
 				.replaceAll("&amp;", "&").replaceAll("&quot;", "\"");
@@ -304,14 +310,14 @@ public class StringUtil {
 
 	/**
 	 * transform half width char to full width char
-	 * 
+	 *
 	 * <pre>
 	 * fullWidthToHalfWidth(null) = null;
 	 * fullWidthToHalfWidth("") = "";
 	 * fullWidthToHalfWidth(new String(new char[] {12288})) = " ";
 	 * fullWidthToHalfWidth("锛侊紓锛冿紕锛咃紗) = "!\"#$%&";
 	 * </pre>
-	 * 
+	 *
 	 * @param s
 	 * @return
 	 */
@@ -337,14 +343,14 @@ public class StringUtil {
 
 	/**
 	 * transform full width char to half width char
-	 * 
+	 *
 	 * <pre>
 	 * halfWidthToFullWidth(null) = null;
 	 * halfWidthToFullWidth("") = "";
 	 * halfWidthToFullWidth(" ") = new String(new char[] {12288});
 	 * halfWidthToFullWidth("!\"#$%&) = "锛侊紓锛冿紕锛咃紗";
 	 * </pre>
-	 * 
+	 *
 	 * @param s
 	 * @return
 	 */

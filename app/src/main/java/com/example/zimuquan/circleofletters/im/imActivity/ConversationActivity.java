@@ -10,8 +10,9 @@ import android.widget.Toast;
 
 
 import com.example.zimuquan.circleofletters.R;
+import com.example.zimuquan.circleofletters.base.BdsM;
 import com.example.zimuquan.circleofletters.im.MainActivity1;
-import com.example.zimuquan.circleofletters.im.base.MyApp;
+
 
 import java.util.Locale;
 
@@ -82,7 +83,7 @@ public class ConversationActivity extends FragmentActivity {
     private void reconnect(String token) {
         Log.e("", "《重连》");
 
-        if (getApplicationInfo().packageName.equals(MyApp.getCurProcessName(getApplicationContext()))) {
+        if (getApplicationInfo().packageName.equals(BdsM.getCurProcessName(getApplicationContext()))) {
 
             RongIM.connect(token, new RongIMClient.ConnectCallback() {
                 @Override
