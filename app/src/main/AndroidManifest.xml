@@ -76,7 +76,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- 开场页面-->
-        <activity android:name=".WalkMessageActvity"
+        <activity android:name=".LandingActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -93,7 +93,7 @@
         <activity android:name=".SpashActivity" />
         <!--************逛一逛主题*****************-->
         <!-- 逛一逛进入填写性别OK-->
-     <!--   <activity android:name="WalkMessageActvity" />-->
+        <activity android:name="WalkMessageActvity" />
         <!-- 逛一逛进入性别判断首页OK-item子项点击no-->
         <activity android:name=".WalkActivity" />
 

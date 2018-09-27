@@ -37,7 +37,7 @@ public class WalkHomeAdapter extends BaseAdapter{
 
     public Callback mCallback;
 
-    //MyAdapter需要一个Context，通过Context获得Layout.inflater，然后通过inflater加载item的布局
+
     public WalkHomeAdapter(Context context, List<WalkArtice.DataBean> datas) {
         mInflater = LayoutInflater.from(context);
         mDatas = datas;
@@ -49,18 +49,14 @@ public class WalkHomeAdapter extends BaseAdapter{
     public int getCount() {
         return mDatas.size();
     }
-
     @Override
     public Object getItem(int position) {
         return mDatas.get(position);
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
-    //这个方法才是重点，我们要为它编写一个ViewHolder
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
@@ -98,9 +94,6 @@ public class WalkHomeAdapter extends BaseAdapter{
         mypictask.execute(bean.getAvatar());
         return convertView;
     }
-
-
-
     //这个ViewHolder只能服务于当前这个特定的adapter，
     private class ViewHolder {
         ImageView love_image;
@@ -111,7 +104,6 @@ public class WalkHomeAdapter extends BaseAdapter{
         ImageView blackimgae;
 
     }
-
     // 图片适配
     class MypicTask extends AsyncTask<String, Void, Bitmap> {
         private ImageView imageView;
@@ -158,21 +150,16 @@ public class WalkHomeAdapter extends BaseAdapter{
             super.onPreExecute();
         }
     }
-
     public interface Callback {
          public void callclick(View v);
      }
-
-
     /**
      * love按钮的监听接口
      */
     public interface onItemLoveListener {
          void onloveClick(int postion);
     }
-
     private onItemLoveListener monItemLoveListener1;
-
     public void setOnItemloveClickListener(onItemLoveListener monItemLoveListener) {
         this.monItemLoveListener1 = monItemLoveListener;
     }

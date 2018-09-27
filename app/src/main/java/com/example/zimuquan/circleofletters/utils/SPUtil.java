@@ -111,67 +111,77 @@ public class SPUtil {
         return bool;
     }
 
-    public UserInfo getUserInfo() {
+    public UserInfo.DataBean getUserInfo() {
 
-        return (UserInfo) JsonUtil.jsonToBean(read(Const.USER), UserInfo.class);
+        return (UserInfo.DataBean) JsonUtil.jsonToBean(read(Const.USER), UserInfo.DataBean.class);
     }
 
-    public void saveUserInfo(UserInfo userInfo) {
+    public void saveUserInfo(UserInfo.DataBean userInfo) {
         save(Const.USER, JsonUtil.objectToJson(userInfo));
     }
 
     /**
      * 登录需要保存的数据
      */
-   /* public void login(UserInfo userInfo) {
+    public void login(UserInfo.DataBean userInfo) {
         if (userInfo != null) {
             m_weditor.putString(Const.USER, JsonUtil.objectToJson(userInfo));//保存用户数据
-            String lastName = read(Const.LAST_USE_NAME);
-            if (StringUtil.isEmpty(userInfo.getGatewayId()) || !StringUtil.isEquals(lastName, userInfo.getUsername())) {
-                m_weditor.remove(Const.PUSH);//清除用户推送字符信息
+            int userid = readInt(Const.UserId);
+            if (!StringUtil.isEquals(userid,userInfo.getUser_id())) {
+                m_weditor.remove(Const.UserId);//清除userid
+                m_weditor.remove(Const.Token);//清除用户token
+                m_weditor.remove(Const.ImToken);//清除用户imtoken
+                m_weditor.remove(Const.Ispzp);//清除vip状态
+                m_weditor.remove(Const.VerfStep);//清除注册状态
+
             }
-            m_weditor.putString(Const.LAST_USE_NAME, userInfo.getUsername());
+            m_weditor.putInt(Const.UserId, userInfo.getUser_id());//userid
+            m_weditor.putString(Const.Token, userInfo.getToken());//usertoken
+            m_weditor.putString(Const.ImToken, userInfo.getIm_token());//im_token
+            m_weditor.putInt(Const.Ispzp, userInfo.getIs_pzp());//是否vip
+            m_weditor.putInt(Const.VerfStep, userInfo.getVerf_step());//是否注册费用交
             m_weditor.commit();
         }
-    }*/
+    }
 
     /**
      * 退出需要清理的数据
      */
-   /* public void logout() {
-        MeSmart.USER = null;
+    public void logout() {
+        BdsM.USER = null;
         Const.SIGN = null;
         m_weditor.remove(Const.USER);//清除用户信息
-        m_weditor.remove(Const.GWINFO);//清除网关数据
-        m_weditor.remove(Const.DVINFO);//清除设备信息
-        m_weditor.remove(Const.PUSH);//清除用户推送字符信息
+        m_weditor.remove(Const.Token);//清除token
+        m_weditor.remove(Const.ImToken);//清除tokenim
+        m_weditor.remove(Const.Ispzp);//清除用户vip信息
+        m_weditor.remove(Const.VerfStep);//清除用户注册付费信息
         m_weditor.commit();
-        MinaManager.getInstance().destroy();//退出TCP
-    }*/
+    }
 
     /**
      * 绑定成功
      */
-   /* public void Bind(UserInfo userInfo) {
+    public void Bind(UserInfo userInfo) {
         m_weditor.putString(Const.USER, JsonUtil.objectToJson(userInfo));//保存用户数据
         //m_weditor.putString(Const.LAST_USE_NAME, userInfo.getUsername());
         // m_weditor.remove(Const.USER);//清除用户信息
-        m_weditor.remove(Const.GWINFO);//清除网关数据
-        m_weditor.remove(Const.DVINFO);//清除设备信息
-        m_weditor.remove(Const.PUSH);//清除用户推送字符信息
+        m_weditor.remove(Const.Token);//清除
+        m_weditor.remove(Const.ImToken);//清除
+        m_weditor.remove(Const.Ispzp);//清除
+        m_weditor.remove(Const.VerfStep);//清除
         m_weditor.commit();
-    }*/
+    }
 
     /**
      * 解除绑定
      */
-   /* public void unBind() {
+    public void unBind() {
         // m_weditor.remove(Const.USER);//清除用户信息
-        m_weditor.remove(Const.GWINFO);//清除网关数据
-        m_weditor.remove(Const.DVINFO);//清除设备信息
-        m_weditor.remove(Const.PUSH);//清除用户推送字符信息
+        m_weditor.remove(Const.Token);//清除
+        m_weditor.remove(Const.ImToken);//清除
+        m_weditor.remove(Const.Ispzp);//清除
+        m_weditor.remove(Const.VerfStep);//清除
         m_weditor.commit();
-        MinaManager.getInstance().destroy();//退出TCP
-    }*/
+    }
 }
 

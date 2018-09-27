@@ -158,7 +158,7 @@ public class StringUtil {
 	 * @return
 	 * @see ObjectUtils#isEquals(Object, Object)
 	 */
-	public static boolean isEquals(String actual, String expected) {
+	public static boolean isEquals(int actual, int expected) {
 		return ObjectUtils.isEquals(actual, expected);
 	}
 

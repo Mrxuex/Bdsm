@@ -15,29 +15,8 @@ public class UserInfo implements Serializable {
 
     /**
      * Flag : 100
-     * FlagString : 请求成功(手机号和验证码成功)    手机验证码错误
-     * data : {"user_id":68503,
-     * "nick_name":"冷元勋_7503",
-     * "nick_name_self":"",
-     * "package":"com.scytbb.bdsm",
-     * "is_anchor":0,"is_recommend":0,
-     * "recommend_weight":9999,
-     * "is_pay_authentication_fee":1,
-     * "is_restricted":0,
-     * "is_video_authentication":0,
-     * "video_authentication_url":"",
-     * "is_fill":1,
-     * "is_system":0,
-     * "status":1,
-     * "register_type":"0",
-     * "online_state":1,
-     * "real_name":"",
-     * "photo_list":"[]",
-     * "photo_list_self":null,
-     * "photo_need_auth":"0",
-     * "sex":1,
-     * "rank_user":1,
-     * "mobile":"16605711725","openid":"","unionid":"","password":"74d6f5f8aff72b3135036da9aaadf712","avatar":"https://bdsm-1256663796.file.myqcloud.com/avatar/default.jpg","avatar_to_self":"http://bdsm-1256663796.cos.ap-shanghai.myqcloud.com/avatar/68503201809211937311469-800x802.jpg","avatar_audit_success":0,"platform":"ios","location":"北京市","location_id":0,"birthday":728323200,"age":24,"signature":"你不主动，我们之间怎么有故事","signature_to_self":"","access_token":"","inviter_user_id":0,"bind_invite_time":0,"invite_effective":"1","is_mjh":0,"mjh_reason":0,"is_vip":0,"vip_expire_time":0,"visitor":0,"follow":0,"follower":0,"property":"S","longitude":"120.329435","latitude":"30.307957","interest_label":null,"login_ip":"115.198.129.32","login_time":"2018-09-21 14:06:47","login_addr":"中国 浙江 杭州","login_count":4,"touch_live_times":2,"already_touch_user_list":"[2279,2963,3270,5243,2032,5516,1527,391]","register_time":"2018-09-20 17:38:56","version":"mozilla/5.0(windowsnt10.0;wow64)applewebkit/537.36(khtml,likegecko)chrome/68.0.3440.106safari/537.36","register_version":"com.scytbb.bdsm/1.1.4/app","user_token":"","update_time":"2018-09-21 14:06:47","is_cancel_user":0,"is_avatar_check":0,"is_block":0,"block_time":0,"account_block_remark":null,"account_block_time":0,"im_token":"6VqQ7OG6APgkTyZF3xThSdhB2MqgR3qPZhqLXUHvnmQX5sAibl/R5FXOtg5RrAVAhxvu9kNaDzJDtuFZe8wRjw==","avatar_is_check":0,"token":"b3eba2da0a29bf15fbaf2f6daaa63b4e"}
+     * FlagString : 请求成功
+     * data : {"user_id":68503,"nick_name":"冷元勋","nick_name_self":"","package":"com.scytbb.bdsm","is_anchor":0,"is_recommend":0,"recommend_weight":9999,"is_restricted":0,"is_video_authentication":0,"video_authentication_url":"","is_fill":1,"is_system":0,"status":1,"register_type":"0","online_state":4,"real_name":"","photo_list":"[]","photo_list_self":null,"photo_need_auth":"0","sex":1,"rank_user":1,"mobile":"16605711725","openid":"","unionid":"","password":"74d6f5f8aff72b3135036da9aaadf712","avatar":"http://bdsm-1256663796.cos.ap-shanghai.myqcloud.com/avatar/68503201809212345212233-800x800.jpg","avatar_to_self":"http://bdsm-1256663796.cos.ap-shanghai.myqcloud.com/avatar/68503201809212343103766-800x802.jpg","avatar_audit_success":1,"platform":"ios","location":"上海市","location_id":0,"birthday":633628800,"age":27,"signature":"。，。","signature_to_self":"","access_token":"","inviter_user_id":0,"bind_invite_time":0,"invite_effective":"1","is_mjh":0,"mjh_reason":0,"visitor":2,"follow":0,"follower":0,"property":"S","longitude":"121.430185","latitude":"31.215948","interest_label":null,"login_ip":"115.196.163.69","login_time":"2018-09-27 10:13:44","login_addr":"中国 浙江 杭州","login_count":23,"touch_live_times":0,"already_touch_user_list":"[2279,2963,3270,5243,2032,5516,1527,391,3888,3481,2908,3885,2113,1845,2285,10006,2288,945,5046,2882]","register_time":"2018-09-20 17:38:56","version":"mozilla/5.0(windowsnt10.0;wow64)applewebkit/537.36(khtml,likegecko)chrome/68.0.3440.106safari/537.36","register_version":"com.scytbb.bdsm/1.1.4/app","user_token":"","update_time":"2018-09-27 11:00:01","is_cancel_user":0,"is_avatar_check":0,"is_block":0,"block_time":0,"account_block_remark":null,"account_block_time":0,"im_token":"6VqQ7OG6APgkTyZF3xThSdhB2MqgR3qPZhqLXUHvnmQX5sAibl/R5FXOtg5RrAVAhxvu9kNaDzJDtuFZe8wRjw==","avatar_is_check":0,"token":"e2a3f119a8281bf6a78b5c27e72d5eae","is_pzp":0,"verf_step":1}
      */
 
     private int Flag;
@@ -71,13 +50,12 @@ public class UserInfo implements Serializable {
     public static class DataBean {
         /**
          * user_id : 68503
-         * nick_name : 冷元勋_7503
+         * nick_name : 冷元勋
          * nick_name_self :
          * package : com.scytbb.bdsm
          * is_anchor : 0
          * is_recommend : 0
          * recommend_weight : 9999
-         * is_pay_authentication_fee : 1
          * is_restricted : 0
          * is_video_authentication : 0
          * video_authentication_url :
@@ -85,7 +63,7 @@ public class UserInfo implements Serializable {
          * is_system : 0
          * status : 1
          * register_type : 0
-         * online_state : 1
+         * online_state : 4
          * real_name :
          * photo_list : []
          * photo_list_self : null
@@ -96,15 +74,15 @@ public class UserInfo implements Serializable {
          * openid :
          * unionid :
          * password : 74d6f5f8aff72b3135036da9aaadf712
-         * avatar : https://bdsm-1256663796.file.myqcloud.com/avatar/default.jpg
-         * avatar_to_self : http://bdsm-1256663796.cos.ap-shanghai.myqcloud.com/avatar/68503201809211937311469-800x802.jpg
-         * avatar_audit_success : 0
+         * avatar : http://bdsm-1256663796.cos.ap-shanghai.myqcloud.com/avatar/68503201809212345212233-800x800.jpg
+         * avatar_to_self : http://bdsm-1256663796.cos.ap-shanghai.myqcloud.com/avatar/68503201809212343103766-800x802.jpg
+         * avatar_audit_success : 1
          * platform : ios
-         * location : 北京市
+         * location : 上海市
          * location_id : 0
-         * birthday : 728323200
-         * age : 24
-         * signature : 你不主动，我们之间怎么有故事
+         * birthday : 633628800
+         * age : 27
+         * signature : 。，。
          * signature_to_self :
          * access_token :
          * inviter_user_id : 0
@@ -112,26 +90,24 @@ public class UserInfo implements Serializable {
          * invite_effective : 1
          * is_mjh : 0
          * mjh_reason : 0
-         * is_vip : 0
-         * vip_expire_time : 0
-         * visitor : 0
+         * visitor : 2
          * follow : 0
          * follower : 0
          * property : S
-         * longitude : 120.329435
-         * latitude : 30.307957
+         * longitude : 121.430185
+         * latitude : 31.215948
          * interest_label : null
-         * login_ip : 115.198.129.32
-         * login_time : 2018-09-21 14:06:47
+         * login_ip : 115.196.163.69
+         * login_time : 2018-09-27 10:13:44
          * login_addr : 中国 浙江 杭州
-         * login_count : 4
-         * touch_live_times : 2
-         * already_touch_user_list : [2279,2963,3270,5243,2032,5516,1527,391]
+         * login_count : 23
+         * touch_live_times : 0
+         * already_touch_user_list : [2279,2963,3270,5243,2032,5516,1527,391,3888,3481,2908,3885,2113,1845,2285,10006,2288,945,5046,2882]
          * register_time : 2018-09-20 17:38:56
          * version : mozilla/5.0(windowsnt10.0;wow64)applewebkit/537.36(khtml,likegecko)chrome/68.0.3440.106safari/537.36
          * register_version : com.scytbb.bdsm/1.1.4/app
          * user_token :
-         * update_time : 2018-09-21 14:06:47
+         * update_time : 2018-09-27 11:00:01
          * is_cancel_user : 0
          * is_avatar_check : 0
          * is_block : 0
@@ -140,7 +116,9 @@ public class UserInfo implements Serializable {
          * account_block_time : 0
          * im_token : 6VqQ7OG6APgkTyZF3xThSdhB2MqgR3qPZhqLXUHvnmQX5sAibl/R5FXOtg5RrAVAhxvu9kNaDzJDtuFZe8wRjw==
          * avatar_is_check : 0
-         * token : b3eba2da0a29bf15fbaf2f6daaa63b4e
+         * token : e2a3f119a8281bf6a78b5c27e72d5eae
+         * is_pzp : 0
+         * verf_step : 1
          */
 
         private int user_id;
@@ -151,7 +129,6 @@ public class UserInfo implements Serializable {
         private int is_anchor;
         private int is_recommend;
         private int recommend_weight;
-        private int is_pay_authentication_fee;
         private int is_restricted;
         private int is_video_authentication;
         private String video_authentication_url;
@@ -186,8 +163,6 @@ public class UserInfo implements Serializable {
         private String invite_effective;
         private int is_mjh;
         private int mjh_reason;
-        private int is_vip;
-        private int vip_expire_time;
         private int visitor;
         private int follow;
         private int follower;
@@ -215,6 +190,8 @@ public class UserInfo implements Serializable {
         private String im_token;
         private int avatar_is_check;
         private String token;
+        private int is_pzp;
+        private int verf_step;
 
         public int getUser_id() {
             return user_id;
@@ -270,14 +247,6 @@ public class UserInfo implements Serializable {
 
         public void setRecommend_weight(int recommend_weight) {
             this.recommend_weight = recommend_weight;
-        }
-
-        public int getIs_pay_authentication_fee() {
-            return is_pay_authentication_fee;
-        }
-
-        public void setIs_pay_authentication_fee(int is_pay_authentication_fee) {
-            this.is_pay_authentication_fee = is_pay_authentication_fee;
         }
 
         public int getIs_restricted() {
@@ -552,22 +521,6 @@ public class UserInfo implements Serializable {
             this.mjh_reason = mjh_reason;
         }
 
-        public int getIs_vip() {
-            return is_vip;
-        }
-
-        public void setIs_vip(int is_vip) {
-            this.is_vip = is_vip;
-        }
-
-        public int getVip_expire_time() {
-            return vip_expire_time;
-        }
-
-        public void setVip_expire_time(int vip_expire_time) {
-            this.vip_expire_time = vip_expire_time;
-        }
-
         public int getVisitor() {
             return visitor;
         }
@@ -782,6 +735,22 @@ public class UserInfo implements Serializable {
 
         public void setToken(String token) {
             this.token = token;
+        }
+
+        public int getIs_pzp() {
+            return is_pzp;
+        }
+
+        public void setIs_pzp(int is_pzp) {
+            this.is_pzp = is_pzp;
+        }
+
+        public int getVerf_step() {
+            return verf_step;
+        }
+
+        public void setVerf_step(int verf_step) {
+            this.verf_step = verf_step;
         }
     }
 }

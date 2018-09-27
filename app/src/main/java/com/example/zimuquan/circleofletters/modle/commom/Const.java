@@ -32,12 +32,18 @@ public class Const {
      */
     public final static String TAG = "bdsm_log";
     /**
-     * 用户信息
+     * 用户信息保存
      */
     public final static String USER = "User_Info";
-    public final static String PUSH = "push_";//推送字符
 
-    public final static String LAST_USE_NAME = "LAST_USE_NAME"; //用户登录账号
+    public final static String UserId="User_id";
+    public final static String ImToken="Im_token";
+    public final static String Token="user_token"; //用户登录账号
+    public final static String Ispzp="is_vip";//是否是vip
+    public final static String VerfStep="verf_step";//是否交付了注册费用
+   // public final static String PUSH = "push_";//推送字符
+
+    public final static String LAST_USE_NAME = "LAST_USE_NAME";
 
     /**
      * 其他界面调到mainactivity的标示符

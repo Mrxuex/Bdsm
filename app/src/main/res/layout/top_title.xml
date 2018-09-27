@@ -40,8 +40,10 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:focusable="false"
         android:layout_alignParentRight="true"
-        android:textColor="@color/color_ffff5b5b"
-        android:textSize="@dimen/size_14" />
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/size_14"
+        android:layout_marginRight="10dp"
+        />
 
 
     <View

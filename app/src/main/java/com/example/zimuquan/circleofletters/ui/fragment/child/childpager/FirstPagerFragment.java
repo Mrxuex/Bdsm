@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.zimuquan.circleofletters.MainActivity;
 import com.example.zimuquan.circleofletters.R;
@@ -44,17 +45,27 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Created by EDZ on 18/6/3.
  */
 public class FirstPagerFragment extends SupportFragment implements SwipeRefreshLayout.OnRefreshListener {
-    private RecyclerView mRecy;
+    private ListView mRecy;
     private SwipeRefreshLayout mRefreshLayout;
-    private HomeAdapter mAdapter;
+    //  private HomeAdapter mAdapter;
     private boolean mAtTop = true;
     private int mScrollTotal;
-    private String[] mTitles;
-    private String[] mContents;
+    WalkHomeAdapter myAdapter;
 
+  //  List<WalkArtice.DataBean> lists;
     private Context context;
-    private HomeAdapter myAdapter;
-    private URL  url = null;
+   // private HomeAdapter myAdapter;
+    private URL url = null;
+
+    /*考虑后期线程工程，可以迁移代码*/
+    @SuppressLint("HandlerLeak")
+    private Handler myHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            List<WalkArtice.DataBean> lists = (List<WalkArtice.DataBean>) msg.obj;
+            myAdapter = new WalkHomeAdapter(_mActivity, lists);
+            mRecy.setAdapter(myAdapter);
+        }
+    };
 
     public static FirstPagerFragment newInstance() {
 
@@ -64,7 +75,6 @@ public class FirstPagerFragment extends SupportFragment implements SwipeRefreshL
         fragment.setArguments(args);
         return fragment;
     }
-
 
 
     @Nullable
@@ -77,43 +87,76 @@ public class FirstPagerFragment extends SupportFragment implements SwipeRefreshL
     }
 
     private void initView(View view) {
-        mRecy = (RecyclerView) view.findViewById(R.id.recy);
+        mRecy = (ListView) view.findViewById(R.id.recy);
         mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
 
-        mTitles = getResources().getStringArray(R.array.array_title);
-        mContents = getResources().getStringArray(R.array.array_content);
 
         mRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         mRefreshLayout.setOnRefreshListener(this);
 
-        mAdapter = new HomeAdapter(_mActivity);
-        LinearLayoutManager manager = new LinearLayoutManager(_mActivity);
-        mRecy.setLayoutManager(manager);
-        mRecy.setAdapter(mAdapter);
 
-        mAdapter.setOnItemClickListener(new OnItemClickListener() {
+
+        new Thread() {
+            public void run() {
+                try {
+
+                        url = new URL(URLUtils.getTouristsHomepage() + "1");
+
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.setReadTimeout(5000);
+                    connection.setConnectTimeout(5000);
+
+                    int code = connection.getResponseCode();
+                    if (code == 200) {
+                        //5
+                        InputStream inputStream = connection.getInputStream();
+
+                        String content = streamToString(inputStream);
+                        Gson gson = new Gson();
+                        WalkArtice news = gson.fromJson(content, WalkArtice.class);
+
+                        List<WalkArtice.DataBean> newslist = news.getData();
+
+                        Message msg = Message.obtain();
+                        msg.obj = newslist;
+                        myHandler.sendMessage(msg);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+        //  mAdapter = new HomeAdapter(_mActivity);
+        // lists=new List<WalkArtice.DataBean> datas[];
+        //myAdapter = new WalkHomeAdapter(_mActivity, lists);
+        LinearLayoutManager manager = new LinearLayoutManager(_mActivity);
+       // mRecy.setLayoutManager(manager);
+        //   mRecy.setAdapter(mAdapter);
+
+    /*    mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position, View view, RecyclerView.ViewHolder vh) {
                 // 这里的DetailFragment在flow包里
                 // 这里是父Fragment启动,要注意 栈层级
               //  ((SupportFragment) getParentFragment()).start(DetailFragment.newInstance(mAdapter.getItem(position).getTitle()));
             }
-        });
+        });*/
 
-        // Init Datas
+     /*   // Init Datas
         List<Article> articleList = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             int index = (int) (Math.random() * 3);
             Article article = new Article(mTitles[index], mContents[index]);
             articleList.add(article);
         }
-        mAdapter.setDatas(articleList);
+        mAdapter.setDatas(articleList);*/
 
 
 
 
-
-        mRecy.addOnScrollListener(new RecyclerView.OnScrollListener() {
+/*      刷新*/
+      /*  mRecy.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -124,8 +167,9 @@ public class FirstPagerFragment extends SupportFragment implements SwipeRefreshL
                     mAtTop = false;
                 }
             }
-        });
+        });*/
     }
+
     /*类型转换显示*/
     public String streamToString(InputStream is) {
         StringBuilder builder = new StringBuilder();
@@ -143,6 +187,7 @@ public class FirstPagerFragment extends SupportFragment implements SwipeRefreshL
         }
         return builder.toString();
     }
+
     @Override
     public void onRefresh() {
         mRefreshLayout.postDelayed(new Runnable() {

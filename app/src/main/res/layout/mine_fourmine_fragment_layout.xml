@@ -22,10 +22,26 @@
                 android:src="@mipmap/dating_mine_vip" />
 
             <TextView
+                android:id="@+id/vip_text"
                 style="@style/personal_tv_style"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/img_personal_member_center"
                 android:text="会员中心" />
+
+            <TextView
+                android:id="@+id/opening_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageView"
+                android:layout_marginEnd="11dp"
+                android:layout_toStartOf="@+id/imageView"
+                android:text="去开通" />
+            <ImageView
+                style="@style/personal_item_icon_style"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/dating_user_homepage_right_arrow"
+                android:id="@+id/imageView" />
 
             <View
                 style="@style/AppTheme.Divider.Line.Vertical"
@@ -39,15 +55,19 @@
             <ImageView
                 android:id="@+id/img_personal_my_dynamic"
                 style="@style/personal_item_icon_style"
-
                 android:src="@mipmap/dating_mine_dynamics" />
-
             <TextView
                 style="@style/personal_tv_style"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/img_personal_my_dynamic"
                 android:text="我的动态" />
 
+            <ImageView
+                style="@style/personal_item_icon_style"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/dating_user_homepage_right_arrow"
+                />
             <View
                 style="@style/AppTheme.Divider.Line.Vertical"
                 android:layout_alignParentBottom="true" />
@@ -68,7 +88,12 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/img_personal_my_label"
                 android:text="我的标签" />
-
+            <ImageView
+                style="@style/personal_item_icon_style"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/dating_user_homepage_right_arrow"
+                />
             <View
                 style="@style/AppTheme.Divider.Line.Vertical"
                 android:layout_alignParentBottom="true" />
@@ -89,10 +114,15 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/img_personal_feedback"
                 android:text="意见反馈" />
-
-            <!--<View
+            <ImageView
+                style="@style/personal_item_icon_style"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/dating_user_homepage_right_arrow"
+                />
+            <View
                 style="@style/AppTheme.Divider.Line.Vertical"
-                android:layout_alignParentBottom="true" />-->
+                android:layout_alignParentBottom="true" />
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

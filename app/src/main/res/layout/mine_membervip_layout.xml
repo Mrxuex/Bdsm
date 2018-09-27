@@ -16,24 +16,19 @@
             android:layout_height="match_parent"
             android:src="@mipmap/dating_tabbar_home_sel"
             />
-
-
-
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/bottom_immediately_opened"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:background="@color/textColorPrimary"
-
         android:gravity="center">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_gravity="center"
-
             android:gravity="center"
             android:text="立即开通"
             android:textColor="@color/color_ffff5b5b"

@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_below="@id/top_title"
-        android:layout_margin="10dp"
-        android:background="@drawable/feedbook_shap">
+        android:background="@null">
 
         <EditText
             android:id="@+id/nike_num_max"
@@ -23,8 +22,12 @@
             android:lines="5"
             android:maxLines="5"
             android:padding="5dp"
-            android:text="第一步：在设计图上框选出跳转区域，该区域大小方向可调节 第二步：将跳转区域与跳转页面链接!第一步：在设计图上框选出跳转区域，该区域大小方向可调节 第二步：将跳转区域与跳转页面链接"
-            android:textSize="10sp" />
+            android:paddingTop="5dp"
+           android:hint="欢迎留下你的意见和建议"
+            android:textSize="14sp"
+            android:gravity="top"
+
+            />
 
         <TextView
             android:id="@+id/left_num"
@@ -51,8 +54,9 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/color_ffff5b5b"
-            android:layout_marginLeft="10dp"/>
+            android:background="@color/no_select"
+            android:layout_marginLeft="10dp"
+           />
 
 
 
@@ -62,8 +66,10 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:hint="请填写你的联系方式(选填)"
-                android:textSize="10sp"
+                android:textSize="14sp"
                 android:layout_margin="10dp"
+               android:paddingLeft="10dp"
+
                 />
 
 
@@ -71,18 +77,20 @@
             android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/color_ffff5b5b"
+            android:background="@color/no_select"
             android:layout_marginLeft="10dp"
             />
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    >
     <ImageView
         android:id="@+id/imageview_zhaopian"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_margin="10dp"
-        android:src="@mipmap/dating_tabbar_home_sel" />
+        android:src="@mipmap/compose_pic_add" />
 
 </LinearLayout>
 

@@ -77,32 +77,8 @@ public class LandingActivity extends BaseActivity {
     //初始化数据
     @Override
     public void initData() {
-
-
         mHandler = new Handler();
         mHandler.post(countDownRunnable);
-
-
-
-/*
-        mHandler = new Handler();
-        if (StringUtil.isEmpty(SPUtil.Instance().read(Const.USER))) {
-            boolean isChinese = BaseUtils.isZh(this);
-            URLUtils.setServer(isChinese);
-        } else {
-            if (StringUtils.checkEmail(MeSmart.USER.getUsername())) {
-                URLUtils.setServer(false);
-            } else if (StringUtils.checkPhone(MeSmart.USER.getUsername())) {
-                URLUtils.setServer(true);
-            }
-        }
-        mHandler.post(countDownRunnable);
-        DisplayImageOptions options = new DisplayImageOptions.Builder().showImageOnFail(R.drawable.landing)
-                .showStubImage(R.drawable.landing).build();
-        ImageLoader.getInstance().displayImage(URLUtils.getGuideImgUrl(), land_view, options);
-        if(!MinaManager.getInstance().isConnect()) {
-            startMinaService();
-        }*/
 
     }
 
@@ -151,10 +127,10 @@ public class LandingActivity extends BaseActivity {
             BdsM.isResume = true;
             ActivityUtil.intentActivity(LandingActivity.this, MainActivity.class);
         } else if (SPUtil.Instance().readBoolean(Const.IS_NO_FIRST)) {
-            ActivityUtil.intentActivity(LandingActivity.this, LoginActivity.class);
+            ActivityUtil.intentActivity(LandingActivity.this, SpashActivity.class);
         } else {
             SPUtil.Instance().saveBoolean(Const.IS_NO_FIRST, true);
-            ActivityUtil.intentActivity(LandingActivity.this, LoginActivity.class);
+            ActivityUtil.intentActivity(LandingActivity.this, SpashActivity.class);
         }
         this.finish();
 

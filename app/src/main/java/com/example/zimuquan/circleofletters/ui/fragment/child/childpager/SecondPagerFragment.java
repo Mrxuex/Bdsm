@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
 import com.example.zimuquan.circleofletters.MainActivity;
 import com.example.zimuquan.circleofletters.R;
 import com.example.zimuquan.circleofletters.event.TabSelectedEvent;
@@ -27,7 +29,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Created by EDZ on 18/9/15.
  */
 public class SecondPagerFragment extends SupportFragment implements SwipeRefreshLayout.OnRefreshListener {
-    private RecyclerView mRecy;
+    private ListView mRecy;
     private SwipeRefreshLayout mRefreshLayout;
     private HomeCircleAdapter mAdapter;
     private boolean mAtTop = true;
@@ -54,7 +56,7 @@ public class SecondPagerFragment extends SupportFragment implements SwipeRefresh
     }
 
     private void initView(View view) {
-        mRecy = (RecyclerView) view.findViewById(R.id.recy);
+        mRecy = (ListView) view.findViewById(R.id.recy);
         mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
 
         mTitles = getResources().getStringArray(R.array.array_title);
@@ -65,8 +67,8 @@ public class SecondPagerFragment extends SupportFragment implements SwipeRefresh
 
         mAdapter = new HomeCircleAdapter(_mActivity);
         LinearLayoutManager manager = new LinearLayoutManager(_mActivity);
-        mRecy.setLayoutManager(manager);
-        mRecy.setAdapter(mAdapter);
+      //  mRecy.setLayoutManager(manager);
+      //  mRecy.setAdapter(mAdapter);
 
         mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -86,7 +88,7 @@ public class SecondPagerFragment extends SupportFragment implements SwipeRefresh
         }
         mAdapter.setDatas(articleList);
 
-        mRecy.addOnScrollListener(new RecyclerView.OnScrollListener() {
+      /*  mRecy.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -97,7 +99,7 @@ public class SecondPagerFragment extends SupportFragment implements SwipeRefresh
                     mAtTop = false;
                 }
             }
-        });
+        });*/
     }
 
     @Override

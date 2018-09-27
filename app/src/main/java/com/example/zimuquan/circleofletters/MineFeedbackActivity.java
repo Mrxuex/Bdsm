@@ -4,20 +4,30 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zimuquan.circleofletters.base.BaseActivity;
+
+import butterknife.BindView;
 
 /**
  * Created by EDZ on 2018/9/14.
  */
 
-public class MineFeedbackActivity extends BaseActivity {
+public class MineFeedbackActivity extends BaseActivity implements View.OnClickListener {
 
-    final int maxNum = 500;
+    final int maxNum = 300;
     private TextView leftNum;
-    private   EditText ed;
+    private EditText ed;
+    @BindView(R.id.toptitleText)
+    TextView toptitle;
+    @BindView(R.id.backbtnlay)
+    ImageView back;
+    @BindView(R.id.rightlay)
+    TextView textView_rig;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,8 +41,11 @@ public class MineFeedbackActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        leftNum=  (TextView) findViewById(R.id.left_num);
-        ed= (EditText) findViewById(R.id.nike_num_max);
+        toptitle.setText("投诉意见");
+        textView_rig.setText("提交");
+        back.setOnClickListener(this);
+        leftNum = (TextView) findViewById(R.id.left_num);
+        ed = (EditText) findViewById(R.id.nike_num_max);
         ed.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -46,7 +59,7 @@ public class MineFeedbackActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                leftNum.setText("300/"+ (maxNum-s.length()));
+                leftNum.setText( (maxNum - s.length())+"/300");
             }
         });
     }
@@ -57,5 +70,14 @@ public class MineFeedbackActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.backbtnlay:
+                finish();
+                break;
+
+        }
+    }
 }
 

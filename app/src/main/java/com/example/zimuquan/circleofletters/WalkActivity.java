@@ -68,15 +68,35 @@ public class WalkActivity extends BaseActivity implements SwipeRefreshLayout.OnR
     private PopupWindow popupWindow;
 
 
+    private int usrer_id;
 
 
-    /*考虑后期线程工程，可以迁移代码*/
     @SuppressLint("HandlerLeak")
     private Handler myHandler = new Handler() {
         public void handleMessage(Message msg) {
             List<WalkArtice.DataBean> lists = (List<WalkArtice.DataBean>) msg.obj;
             myAdapter = new WalkHomeAdapter(WalkActivity.this, lists);
             recylist.setAdapter(myAdapter);
+
+
+
+            recylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                   // startActivity(new Intent(WalkActivity.this, PersonalHomepageActivity.class));
+                    // TODO Auto-generated method stub
+                    //position 点击的Item位置，从0开始算
+                    Intent intent=new Intent(WalkActivity.this,PersonalHomepageActivity.class);
+                 //   intent.putExtra("usreid",usrer_id);//传递给下一个Activity的值
+                    startActivity(intent);//启动Activity
+
+
+                }
+            });
+
+           /* 点击item子项触发提醒登录popwindow*/
             myAdapter.setOnItemloveClickListener(new WalkHomeAdapter.onItemLoveListener() {
                 @Override
                 public void onloveClick(int postion) {
@@ -182,14 +202,7 @@ public class WalkActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         swipeRefreshLayout.setColorSchemeResources(R.color.textColorPrimary);
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        //ListView item的点击事件
-        recylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(WalkActivity.this, PersonalHomepageActivity.class));
 
-            }
-        });
 
     }
 
@@ -225,6 +238,8 @@ public class WalkActivity extends BaseActivity implements SwipeRefreshLayout.OnR
                         Gson gson = new Gson();
                         WalkArtice news = gson.fromJson(content, WalkArtice.class);
 
+                        WalkArtice.DataBean id=new WalkArtice.DataBean();
+                        usrer_id=id.getUser_id();
                         List<WalkArtice.DataBean> newslist = news.getData();
 
                         Message msg = Message.obtain();

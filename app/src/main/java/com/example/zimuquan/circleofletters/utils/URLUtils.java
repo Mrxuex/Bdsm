@@ -12,7 +12,8 @@ public class URLUtils {
     /**
      * 服务器地址
      */
-    public static String SERVERPATH = "http://bdsmapi.bdsmchat.top/api/";
+    public static String SERVERPATH = "http://bdsmapi.bdsmchat.top/api/v2/";
+
 
     /**
      * URL-GET
@@ -25,6 +26,8 @@ public class URLUtils {
     public static String TouristsUserID = SERVERPATH + "visitor/homepage?h_user_id=";
     /*游客查看用户动态*/
     public static String TouristsUserHomepage = SERVERPATH + "visitor/dynamics_list?other_user_id=";
+
+
     /*****************************index**********************************/
     /* 获取基本配置*/
     public static String TouristuUser = SERVERPATH + "config/app";
@@ -32,12 +35,17 @@ public class URLUtils {
     public static String TouristsHome = SERVERPATH + "index/home?name=recommend";
     /*获取首页搜索条件接口*/
     public static String TouristsSearchCriteria = SERVERPATH + "index/search_condition";
+
+
     /***************************** pay **********************************/
     /*支付*/
-    public static String TouristsPay=SERVERPATH+"{{url}}{{pay}}/{{payType}}?type=1";
+    public static String TouristsPay = SERVERPATH + "{{url}}{{pay}}/{{payType}}?type=1";
     /* 用户信息页面*/
-    public static String TouristsUserAll=SERVERPATH+"visitor/homepage?h_user_id=21";
+    public static String TouristsUserAll = SERVERPATH + "visitor/homepage?h_user_id=21";
 
+    /*访问记录*/
+    public static String FangWenJiLu = SERVERPATH + "user/getRecentVisitor";
+    public static String ImJiLu = SERVERPATH + "user/checkCanInitiateChat?to_user_id=136";
 
     /***************************** user **********************************/
 
@@ -52,6 +60,15 @@ public class URLUtils {
     public static String TouristuUserLoginPhone = SERVERPATH + "register/isFreePhone?";
 
 
+    public static String TouSuJuBao = SERVERPATH + "user/reported?content=hahahah&come_way=15757141767&target_user_id=12009&img_list=";
+
+    public static String YiJianFanKui = SERVERPATH + "user/feedback?content=hahahah&come_way=15757141767";
+
+
+    /**
+     * URL-put
+     */
+    private static String ChangeUserMess = SERVERPATH + "user/updateNotes?to_user_id=136&remark=哈哈";
 
     /**
      * URL-Methods

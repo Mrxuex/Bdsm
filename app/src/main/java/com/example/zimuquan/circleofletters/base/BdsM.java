@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.multidex.MultiDex;
 
+import com.example.zimuquan.circleofletters.http.CacheInterceptor;
 import com.example.zimuquan.circleofletters.modle.user.UserInfo;
 import com.example.zimuquan.circleofletters.modle.commom.Const;
 import com.example.zimuquan.circleofletters.utils.SPUtil;
@@ -29,28 +30,26 @@ public class BdsM extends BaseApplication {
     public static String NETSTATE = "wifi";//网络状态
     private static BdsM instance;
     public Activity activity;
-    public static UserInfo USER = null;
+    public static UserInfo.DataBean USER = null;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        /*保存用户信息*/
-        USER = new SPUtil(this).getUserInfo();
         instance = this;
         MultiDex.install(this);
-      //  USER = new SPUtil(this).getUserInfo();
+        //USER = new SPUtil(this).getUserInfo();
         if (getApplicationInfo().packageName.equals(getCurProcessName(getApplicationContext())) ||
                 "io.rong.push".equals(getCurProcessName(getApplicationContext()))) {
-
             /**
              * IMKit SDK调用第一步 初始化
              */
             RongIM.init(this);
         }
-
+         /*保存用户信息*/
+        USER = new SPUtil(this).getUserInfo();
         initImageLoader();
-
-
+        initOkHttpClient(true, "xueyr", new CacheInterceptor(this));
+       // CrashReport.initCrashReport(getApplicationContext(), "08f380899f", false);         腾讯bugle热更新注册
     }
 
 
