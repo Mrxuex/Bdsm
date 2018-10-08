@@ -45,6 +45,7 @@ public class URLUtils {
 
     /*访问记录*/
     public static String FangWenJiLu = SERVERPATH + "user/getRecentVisitor";
+    /*im通讯中断*/
     public static String ImJiLu = SERVERPATH + "user/checkCanInitiateChat?to_user_id=136";
 
     /***************************** user **********************************/
@@ -59,9 +60,9 @@ public class URLUtils {
     /*验证手机号*/
     public static String TouristuUserLoginPhone = SERVERPATH + "register/isFreePhone?";
 
-
+    /*投诉*/
     public static String TouSuJuBao = SERVERPATH + "user/reported?content=hahahah&come_way=15757141767&target_user_id=12009&img_list=";
-
+    /*意见反馈*/
     public static String YiJianFanKui = SERVERPATH + "user/feedback?content=hahahah&come_way=15757141767";
 
 

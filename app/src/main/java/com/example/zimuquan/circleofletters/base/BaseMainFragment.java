@@ -11,7 +11,7 @@ import com.example.zimuquan.circleofletters.ui.fragment.HomePageFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 /**
  * 懒加载
- * Created by  Administrator on 18/6/5.
+ * Created by  Administrator on 18/9/5.
  */
 public abstract class BaseMainFragment extends SupportFragment {
     protected OnBackToFirstListener _mBackToFirstListener;

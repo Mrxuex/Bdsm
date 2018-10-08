@@ -1,0 +1,72 @@
+微信登录集成：
+   包含：package com.example.zimuquan.circleofletters.wxapi.WXEntryActivity.java
+         APPID类：SocialUtils.java
+
+
+im通讯集成：
+    包含：package com.example.zimuquan.circleofletters.im.\...
+
+    imActivity连线
+    receiver接受反馈器
+    base 注册初始化baseApcation 测试
+    推送消息，修改用户id进行通信
+
+界面：
+    包含:基本以相对布局拉伸模式完成界面ui
+
+    适配器适配（网络适配监控监听（未）\资源适配（OK））
+    Base类初始化
+    设置界面（OK）
+    fragment主体框架耦合性框架（Ok）
+    登录及引导（OK预留）
+    token预留（APP启动（未））
+    数据存储（OK）
+    Url管理类（Ok）
+    通信框架（okhttputils/Xutils）
+    解析（GSON）
+    图片加载（Imgeer-loder插件）
+    腾讯X5webview引擎
+    热更新（腾讯bugler（未））
+
+
+
+
+        账号资料：（融云/微信/支付宝/腾讯云）
+
+weixinID：wxb2538c1a8dd1f018
+字母圈
+友盟
+appkey: 5ba2fe74b465f54c5b0001a6
+微信
+Wechat_AppID                      @"wxb2538c1a8dd1f018"
+Wechat_AppSecret                  @"1a607449529a36dcae9b54ba656e52aa"
+///-----------
+/// 腾讯云
+///-----------
+腾讯云对象存储桶Bukcet                @"bdsm-1256663796"
+腾讯云对象存储AppID                 @"1256663796"
+腾讯云对象存储AvataLibrary          @"avatar/"
+腾讯云对象存储PhotosLibrary         @"photo/"
+腾讯云对象存储VideoLibrary          @"video/"
+腾讯云对象存储ReportLibrary         @"report/"
+腾讯云对象存储DynamicsLibrary       @"dynamic/"
+融云
+RongCloud_AppKey                  @"p5tvi9dspnbq4"
+RongCloud_SystemID                @"1"
+
+字母圈蓝湖地址：https://lanhuapp.com/web/#/item/board?pid=5e1134d9-5f52-4d2f-8731-d0e4d1a26439
+
+postman地址接口预览：https://documenter.getpostman.com/view/4146285/RWMJpRfK
+
+git码云库：
+
+H5页面：https://bdsm-1256663796.cos.ap-shanghai.myqcloud.com/resources/bdsm_protocol.html
+
+接口文档pdf文档：Bdsm.pdf
+
+外部moudle依赖：im集成依赖        okhttp依赖
+
+多渠道打包：walle进行多渠道打包
+
+第三方混淆（ok）
+
